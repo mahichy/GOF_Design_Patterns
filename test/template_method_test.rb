@@ -1,24 +1,30 @@
 # require "test_helper"
 require "minitest/autorun"
-require_relative "../lib/generate"
-require_relative "../lib/html"
+require_relative "../lib/generators/generator"
+require_relative "../lib/generators/html"
+require_relative "../lib/generators/markdown"
 
 module Newsletter
 	describe Generator do 
-		it " generate a newsletter in HTML " do
+		it "generate a newsletter in HTML" do
 			final_result = File.read File.expand_path(
 				"fixtures/newsletter.html",
 				File.dirname(__FILE__)
 				)
-			Generator::HTML.new(:html).render.must_include final_result
+			Generators::HTML.new.render.must_include final_result
 		end
 
-		it " generate a report in Markdown " do
+		it "generate a report in Markdown" do
 			final_result = File.read File.expand_path(
 				"fixtures/newsletter.html",
 				File.dirname(__FILE__)
 				)
-			Generator.new(:markdown).render.must_include final_result
+			Generators::Markdown.new.render.must_include final_result
+		end
+
+		it "fails to render if calling the base generator class" do
+			-> { Generator.new.header }.must_raise NotImplementedError
+			-> { Generator.new.content }.must_raise NotImplementedError
 		end
 
 	end
