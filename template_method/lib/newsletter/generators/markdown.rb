@@ -4,6 +4,7 @@ module Newsletter
 			def header
 				"# Hello World!"
 			end
+
 			def content
 				"lorem ipsum"
 			end

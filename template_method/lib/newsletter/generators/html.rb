@@ -2,12 +2,13 @@ module Newsletter
 	module Generators
 		class HTML < Generator
 			def header
-				"<h1>Hello World:</h1>"
+				"<h1>Hello World!</h1>"
 			end
+
 			def content
-			<<EOF
+				<<EOF
 <div class="content">
-	<p>lorem ipsum</p>
+  <p>lorem ipsum</p>
 </div>
 EOF
 			end

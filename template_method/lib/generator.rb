@@ -1,12 +1,11 @@
 module Newsletter
 	class Generator
 		def render
-		<<EOF
+			<<EOF
 #{header}
-		
+
 #{content}
 EOF
-		
 		end
 
 		def header
