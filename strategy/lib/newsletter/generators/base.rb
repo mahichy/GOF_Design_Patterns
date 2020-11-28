@@ -4,13 +4,13 @@ module Newsletter
 			attr_reader :format, :title, :phrase 
 			def initialize(format = :html)
 				@format = format
-				@title = "Hello world"
+				@title = "Hello World!"
 				@phrase = "lorem ipsum"
 			end
 
 			def render
 				name = format.to_s.capitalize
-				strategy = Newsletter::Generators.const_get(name).new.self
+				strategy = Newsletter::Generators.const_get(name).new self
 				strategy.execute
 			end
 
