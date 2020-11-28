@@ -15,7 +15,6 @@ module Newsletter
 		end
 
 		it "generate a newsletter in HTML" do
-			skip
 			final_result = File.read(File.expand_path(
 				"fixtures/newsletter.markdown",
 				File.dirname(__FILE__)
@@ -24,10 +23,6 @@ module Newsletter
 			Generators::Base.new(:markdown).render.must_include(final_result)
 		end
 
-		it "fails to render if calling the base generator class" do
-			skip
-			-> { Generators.new.header }.must_raise NotImplementedError
-			-> { Generators.new.content }.must_raise NotImplementedError
-		end
+		
 	end
 end
