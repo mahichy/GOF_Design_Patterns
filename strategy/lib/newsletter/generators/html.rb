@@ -1,6 +1,6 @@
 module Newsletter
 	module Generators
-		class HTML
+		class Html
 			def execute
 			  <<EOF
 #{header}
