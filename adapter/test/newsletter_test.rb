@@ -33,7 +33,7 @@ module Newsletter
 					File.dirname(__FILE__)
 					)
 
-					@content = Content.parses(@xml, :xml) 
+					@content = Content.parse(@xml, :xml)
 				end
 
 				it "parses the title" do

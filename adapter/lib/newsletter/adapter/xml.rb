@@ -1,14 +1,14 @@
 module Newsletter
-	module Adapter
+	module Adapters
 		class Xml
 			attr_reader :source
-			def initialize source
+			def initialize(source)
 				@source = source
 			end
 
 			def parse
-				
-					xml = Nokogiri::XML source
+
+					xml = Nokogiri::XML(source)
 					title = xml.xpath("//item/title")[0].text
 					body = xml.xpath("//item/body")[0].text
 
