@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require_relative "../lib/product"
 
 describe Product do
-	let(:product) {Product.new("Tomato", :fruit, [ %w(red salad sour) ]) }
+	let(:product) {Product.new("Tomato", :fruit,  %w(red salad sour)) }
 	let(:expected_result) { <<EOF
 		<tr>
 		<th>Tomato</th>
