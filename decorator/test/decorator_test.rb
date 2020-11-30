@@ -18,7 +18,8 @@ describe Product do
 EOF
 	}
 	it "can be printed as a HTML table row" do
-		product.as_html_row.
+		product_decorator = ProductDecorator.new product
+		product_decorator.as_html_row.
 			strip.gsub(/(^\s+)|\n/, ""). # remove all indentation and newlines
 			must_equal expected_result.
 			strip.gsub /(^\s+)|\n/, ""   # remove all indentation and newlines

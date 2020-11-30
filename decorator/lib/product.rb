@@ -1,3 +1,5 @@
+require "forwardable"
+
 class Product
 	attr_reader :name, :category, :tags
 	def initialize name, category, tags = []
@@ -6,6 +8,19 @@ class Product
 		@tags = tags
 	end
 
+end
+
+class ProductDecorator
+	extend Forwardable
+
+
+	def_delegators :@context, :name, :category, :tags
+		
+	
+
+	def initialize(context)
+		@context = context
+	end
 	def as_html_row
 			 <<EOF
 		<tr>
@@ -26,3 +41,4 @@ EOF
 EOF
 	end
 end
+
