@@ -2,7 +2,7 @@ require "minitest/autorun"
 require_relative "../lib/user"
 require_relative "../lib/manager"
 require_relative "../lib/payment_service_factory"
-require_relative "../lib/exceptions/forbidden_access"
+require_relative "../lib/exceptions/forbidden_access_error"
 
 describe PaymentServiceFactory do
 	let(:user) {User.new "John Doe"}
@@ -17,6 +17,6 @@ describe PaymentServiceFactory do
 
 	it "forbids a regular user to perform payments" do 
 		service = PaymentServiceFactory.for user
-		-> { service.pay manager, 500 }.must.raise ForbiddenAccessError
+		-> { service.pay manager, 500 }.must_raise ForbiddenAccessError
 	end
 end
