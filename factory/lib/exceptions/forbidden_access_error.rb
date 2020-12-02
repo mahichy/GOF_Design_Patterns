@@ -1,0 +1,6 @@
+
+
+	class ForbiddenAccessError < StandardError; 
+
+	end
+
