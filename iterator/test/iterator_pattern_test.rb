@@ -9,14 +9,15 @@ describe Family do
 
 		3.times { |i| family.add_child "child #{i}", "F"}
 
-		output = capture_io {family.each_member { |member| puts family.full_name member} }.string
-
-		output.must_equal <<EOF
-Jhon Jackson
-Jane Jackson
-Child 0 Jackson
-Child 1 Jackson
-Child 2 Jackson 
-EOF
+		output = []
+			family.each_member { |member| output << family.full_name(member)}
+ output.must_equal(
+      [
+        "Jhon Jackson",
+        "Jane Jackson",
+        "child 0 Jackson",
+        "child 1 Jackson",
+        "child 2 Jackson"
+      ])
 	end
 end
