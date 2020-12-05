@@ -1,7 +1,7 @@
 module Application
 	class User
 		attr_reader :username
-		def initializer(username, name, job)
+		def initialize username, name, job
 			@username = username
 			@name = name
 			@job = job

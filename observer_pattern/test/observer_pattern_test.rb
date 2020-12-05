@@ -3,7 +3,7 @@ require_relative "../lib/user"
 
 module Application
 	describe User do 
-		let(:user) { user = User.new(
+		let(:user) {User.new(
 			"josemotanet", 
 			"Jose Mota", 
 			"Software Designer" 
@@ -14,15 +14,15 @@ module Application
 			observer.expect :updated, nil, [ user ]
 
 			user.subscribe observer
-			user.updated :username, "josemota"		
+			user.update :username, "josemota"		
 			observer.verify
 		end
 
 		it "prints the contents of the changes user" do
 			observer = UserObserver.new
 			user.subscribe observer
-			capture { user.update :username, "josemota"}.
-			string.must_include "josemota"
+			capture_io { user.update :username, "josemota"}.
+			to_s.must_include "josemota"
 		end
 	end
 end
