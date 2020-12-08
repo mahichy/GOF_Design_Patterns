@@ -4,7 +4,7 @@ require_relative "../lib/car_production_line"
 require_relative "../lib/engine_installation"
 require_relative "../lib/hood_installation"
 require_relative "../lib/wheels_installation"
-require_relative "../lib/exceptions/illegal_jump"
+require_relative "./exceptions/illegal_jump"
 
 describe CarProductionLine do
 	let(:production_line) {CarProductionLine.new}
