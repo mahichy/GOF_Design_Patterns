@@ -13,14 +13,14 @@ class RentalPlan
 		@metadata = Metadata.new name
 	end
 	attr_reader :ranges
-	
+
 	def initialize metadata, ranges
 		@metadata = metadata
 		@ranges = ranges
 	end
 
 	def self.build_list_of_ranges
-		@ranges = [ DayRange.new ]
+		@ranges = [ DayRange.build ]
 	end
 
 	def name
